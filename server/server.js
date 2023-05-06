@@ -15,13 +15,13 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-app.get('/', async (req, res) => {
+app.get('/api/prompt', async (req, res) => {
   res.status(200).send({
-    message: 'Hello from Sahil'
+    message: 'Hello from ChatGPT-OpenAI server!'
   })
 })
 
-app.post('/', async (req, res) => {
+app.post('/api/prompt', async (req, res) => {
   try {
     const prompt = req.body.prompt;
 
@@ -38,7 +38,6 @@ app.post('/', async (req, res) => {
     res.status(200).send({
       bot: response.data.choices[0].text
     });
-
   } catch (error) {
     console.error(error)
     res.status(500).send(error || 'Something went wrong');

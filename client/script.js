@@ -67,7 +67,7 @@ const handleSubmit = async (e) => {
   const messageDiv = document.getElementById(uniqueId);
   loader(messageDiv);
 
-  const response = await fetch("https://jsm-openai-codex.onrender.com", {
+  const response = await fetch("/api/prompt", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
